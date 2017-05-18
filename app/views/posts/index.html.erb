@@ -1,0 +1,18 @@
+<h1>Posts</h1>
+<% @posts.each do |post| %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <% if !current_user.nil? %>
+        <p>User:    <%= User.find(post.user_id).name %></p>
+      <% end %>
+      <p>Title:   <%= post.title %></p>
+      <p>Content: <%= post.content %></p>
+    </div>
+  </div>
+  <br>
+<% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <a class="btn btn-primary" href="/posts/new">Create a new post</a>
+  </div>
+</div>
